@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .login-container input, .login-container button {
+            width: 70%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: 40px;
+        }
+
+        .login-container button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <input type="text" id="email" placeholder="Email Address">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Log In</button>
+    </div>
+
+    <script>
+        function login() {
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+            if(email == "" || password == "") {
+                alert("Email address and Password cannot be blank");
+            }
+            else if (email === 'john@gmail.com' && password === '1234') {
+                alert('Welcome John');
+            } else {
+                alert('Access Denied');
+            }
+        }
+    </script>
+</body>
+</html>

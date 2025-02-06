@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function get(){
+            let name = document.getElementById("name").value;
+            let age = Number(document.getElementById("age").value);
+            let qualification = document.getElementById("qualification").value;
+            let place = document.getElementById("place").value;
+            let str = `${name} | ${age} | ${qualification} | ${place}`;
+            d1.innerHTML = str;
+        }
+    </script>
+</head>
+<body>
+        <p><input type="text" id="name" placeholder="name"</p>
+        <p><input type="number" id="age" placeholder="age"></p>
+        <p><input type="text" id="qualification" placeholder="qualification"></p>
+        <p><input type="text" id="place" placeholder="place"></p>
+        <button onclick="get()">Submit</button>
+        <div id="d1"></div>
+</body>
+</html>
