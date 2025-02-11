@@ -5,7 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>  
     <script>
-        let users = []
+        let users = [];
+        function chkUser(){
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+        
+            let length = users.length
+            for(let i=0;i<length;i++){
+                if(users[i].email==email && users[i].password==password){
+                    root.innerHTML = `
+                    <div>Welcome</div>
+                    <button onclick="showLogin()">Logout</button>
+                    `
+                }
+            }
+        }
+        function showLogin(){
+            root.innerHTML = `
+            <h1>Login Form</h1>
+            <p><input type="text" id="email"></p>
+            <p><input type="password" id="password"></p>
+            <button onclick="chkUser()">Log In</button>
+            <p><button onclick="showForm()">Create Account</button></p>
+            `
+        }
+        function showForm(){
+            root.innerHTML = 
+            `<h1>New Users Signup Form</h1>
+            <p><input type="text" id="name" placeholder="Name"></p>
+            <p><input type="text" id="email" placeholder="Email Address"></p>
+            <p><input type="password" id="password" placeholder="Password"></p>
+            <p><input type="date" id="dob" placeholder="Dob"></p>
+            <p><button onclick="addUser()">Register</button></p>
+            <div id="data"></div>
+            `;
+        }
         function deleteUser(index){
             users.splice(index,1);
             showUsers()
@@ -20,7 +54,7 @@
                     ${users[i].password}-
                     ${users[i].dob}
                     <button onclick='deleteUser(${i})'>Delete</button>
-                    </div>`
+                    </div>`;
             }
             data.innerHTML = str
         }
@@ -36,20 +70,24 @@
                 dob: dob
             } 
             users.push(user)
-            showUsers()
+            showUsers();
+            showLogin()
             
             //data.innerHTML += `${name}, ${email}, ${password}, ${dob}` 
         }
+        //showForm()
     </script>
 </head>
 <body>
-    <h1>New Users Signup Form</h1>
+    <body onload ="showForm()">
+        <div id="root"></div>
+    <!-- <h1>New Users Signup Form</h1>
     <p><input type="text" id="name" placeholder="Name"></p>
     <p><input type="text" id="email" placeholder="Email Address"></p>
     <p><input type="password" id="password" placeholder="Password"></p>
     <p><input type="date" id="dob" placeholder="Dob"></p>
      <p><button onclick="addUser()">Register</button></p>
-    <div id = "data"></div>
+    <div id = "data"></div> -->
 </body>
 </html>
 
